@@ -13,7 +13,7 @@ spec:
         app: example-application
     spec:
       containers:
-        - image: docker-repo-name/example-application:v1.16.5
+        - image: wadefanil/gitops-wade-test:v1.0.1
           name: example-application
           ports:
             - containerPort: 8080
