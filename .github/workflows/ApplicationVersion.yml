@@ -25,7 +25,7 @@ jobs:
         run: |
           kubectl patch \
             --filename=${{ env.DEPLOY_FILE_PATH }} \
-            --patch='{"spec":{"template":{"spec":{"containers":[{"name":"${{ env.APP_REPO }}","image":"${{ env.IMAGE }}:${{ env.TAG_NAME }}"}]}}}}' \
+            --patch='{"spec":{"template":{"spec":{"containers":[{"name":"${{ env.APP_REPO }}","image":"${{ env.IMAGE }}"}]}}}}' \
             --local=true \
             -o yaml > tmp.yaml
       - name: commit change
