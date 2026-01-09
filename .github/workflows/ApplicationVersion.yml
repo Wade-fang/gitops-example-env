@@ -6,6 +6,8 @@ on:
         required: true
       app_repo:
         required: true
+      image:
+        required: true
 jobs:
   update-image-tag:
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
         run: |
           echo "APP_REPO=${{ github.event.inputs.app_repo }}" >> $GITHUB_ENV
           echo "TAG_NAME=${{ github.event.inputs.tag_name }}" >> $GITHUB_ENV
-          echo "IMAGE=${{ vars.DOCKER_HUB_IMAGE }}" >> $GITHUB_ENV
+          echo "IMAGE=${{ github.event.inputs.image }}" >> $GITHUB_ENV
           echo "DEPLOY_FILE_PATH=applications/${{ github.event.inputs.app_repo }}/deployment.yaml" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - uses: azure/setup-kubectl@v4
